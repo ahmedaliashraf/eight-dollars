@@ -10,14 +10,36 @@
     "256": "./assets/256.png",
     "512": "./assets/512.png"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "eight-dollars@ahmedaliashraf.github.io",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
   "content_scripts": [
     {
-      "matches": ["https://twitter.com/*", "https://mobile.twitter.com/*", "https://x.com/*", "https://mobile.x.com/*"],
-      "js": ["content.js"]
+      "matches": [
+        "*://*.twitter.com/*",
+        "*://*.x.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
     }
   ],
-  "web_accessible_resources": ["script.js", "data/verified.txt"],
-  "permissions": ["storage"],
+  "web_accessible_resources": [
+    "script.js",
+    "data/verified.txt"
+  ],
+  "permissions": [
+    "storage"
+  ],
   "browser_action": {
     "default_icon": "./assets/32.png",
     "default_title": "Eight-Dollars",
